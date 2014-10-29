@@ -31,7 +31,7 @@ class Settings(Screen):
            self.onLabel.text = "off"
             
         else:
-            self.onLabel.text = "on"
+            onLabel.text = "on"
 
 class HighScores(Screen):
     pass
