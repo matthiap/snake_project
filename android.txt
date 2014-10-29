@@ -1,0 +1,3 @@
+title = snake
+author = Rocio and Drew
+orientation = portrait
