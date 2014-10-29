@@ -1,0 +1,63 @@
+#:import Button kivy.uix.button
+#:import Slider kivy.uix.boxlayout
+
+<SnakeLogo@Widget>:
+    size_hint: 1, .25
+    canvas:
+        Rectangle:
+            texture: self.texture
+            size: self.size
+            pos: self.pos
+
+<MyButton@Button>:
+    background_color: [0,1,0,1]
+    color: [0,0,0,1]
+    bold: True
+    font_size: 72
+
+<MenuScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        SnakeLogo:
+            id: logo
+            
+        MyButton:
+            id: button1
+            size_hint: 1, .25
+            text: "Play Game"
+            on_press: root.manager.current = 'game'
+            
+
+        MyButton:
+            id: button2
+            size_hint: 1, .25
+            text: "High Scores"
+            on_press: root.manager.current = 'high_scores'
+
+        MyButton:
+            id: button3
+            size_hint: 1, .25
+            text: "Options"
+            #background_normal: "./snake.png"
+            on_press: root.manager.current = 'settings'
+
+<GameScreen>:
+    MyButton:
+        id: button4
+        text: "Main Menu"
+        on_press: root.manager.current = 'menu'
+
+<Settings>:
+    MyButton:
+        id: button5
+        text: "Main Menu"
+        color: 0,0,0,1
+        background_color: [0,1,0,1]
+        on_press: root.manager.current = 'menu'
+
+<HighScores>:
+    MyButton:
+        id: button6
+        text: "Main Menu"
+        on_press: root.manager.current = 'menu'
