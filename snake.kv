@@ -1,6 +1,8 @@
 #:import Button kivy.uix.button
 #:import Slider kivy.uix.boxlayout
 #:import Label kivy.uix.label
+#:import Label kivy.uix.popup
+
 
 <SnakeLogo@Widget>:
     size_hint: 1, .25
@@ -24,24 +26,25 @@
             id: logo
             
         MyButton:
-            id: button1
+            id: game
             size_hint: 1, .25
             text: "Play Game"
             on_press: root.manager.current = 'game'
             
 
         MyButton:
-            id: button2
+            id: scores
             size_hint: 1, .25
             text: "High Scores"
             on_press: root.manager.current = 'high_scores'
 
         MyButton:
-            id: button3
+            id: settings
             size_hint: 1, .25
             text: "Options"
             #background_normal: "./snake.png"
             on_press: root.manager.current = 'settings'
+            
 
 <GameScreen>:
     MyButton:
@@ -54,17 +57,19 @@
         MyButton:
             size_hint: .25, .15
             pos_hint: {'center_x': 0.5, 'center_y': 0.9}
-            text: ""
+            text: "Tilt / Button\nControl"
             
         MyButton:
             size_hint: .25, .15
             pos_hint: {'center_x': 0.5, 'center_y': 0.7}
-            text: ""
+            text: "Snake \nColor"
         
         MyButton:
+            id: color_button
             size_hint: .25, .15
             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-            text: ""
+            text: "Background \nColor"
+            on_press: root.color_popup()
         
         MyButton:
             size_hint: .25, .15
@@ -78,7 +83,7 @@
             pos_hint: {'center_x': 0.75, 'center_y': 0.3}
             font_size: 32
             text: "on"
-            color: [1,0,1,1]
+            color: 1,1,1,1
             
         MyButton:
             size_hint: .25, .15
